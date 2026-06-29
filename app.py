@@ -55,3 +55,4 @@ with col4:
     toss_summary= toss.groupby('toss_decision')['toss_winner_won_match'].value_counts().reset_index()
     fig4= px.bar(toss_summary, x='toss_decision', y='count', color='toss_winner_won_match',barmode='group', labels={'toss_winner_won_match': 'Toss Winner Won Match'})
     st.plotly_chart(fig4, use_container_width=True)
+
