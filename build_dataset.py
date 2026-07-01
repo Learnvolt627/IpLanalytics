@@ -3,6 +3,10 @@ import pandas as pd
 
 df=pd.read_csv("IPL.csv")
 
+df['season']= df['season'].astype(str)
+df['season']= df['season'].str.extract(r'(\d{4})')
+df['season']=pd.to_numeric(df['season'], errors='coerce')
+
 chase = df[df['innings']==2].copy()
 
 before=chase['match_id'].nunique()

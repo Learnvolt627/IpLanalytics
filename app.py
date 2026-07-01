@@ -10,7 +10,7 @@ st.title("IPL Analytics Dashboard (2008-2025)")
 #sidebar filter
 
 df['season']=df['season'].astype(str)
-df['season']=df['season'].str.extract(r'(\d{4})$')
+df['season']=df['season'].str.extract(r'(\d{4})')
 df['season']=pd.to_numeric(df['season'], errors='coerce')
 season=sorted(df['season'].dropna().unique())
 selected_season=st.sidebar.selectbox("Selected Season",["All"]+ list(season))

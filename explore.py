@@ -1,5 +1,6 @@
-import pandas as pd
-df=pd.read_csv("IPL.csv")
+# import pandas as pd
+# df=pd.read_csv("IPL.csv")
+# print(sorted(df['season'].dropna().unique().tolist(), key=str))
 
 
 # print( 'a',335982 in df['match_id'].values)
@@ -21,10 +22,24 @@ df=pd.read_csv("IPL.csv")
 # print(second_innings[['innings','over','ball','runs_batter','runs_total','runs_target']].head(10))
 # print(second_innings[['innings','over','ball','runs_batter','runs_total','runs_target']].tail(10))
 
-sample= df[(df['match_id']==335982) & (df['innings']==2)]
-cols = ['over','ball','ball_no','valid_ball','runs_total','wicket_kind','player_out','striker_out']
-print(sample[cols].head(10))
+# sample= df[(df['match_id']==335982) & (df['innings']==2)]
+# cols = ['over','ball','ball_no','valid_ball','runs_total','wicket_kind','player_out','striker_out']
+# print(sample[cols].head(10))
 
-print("--every wicket that feel in this innings--")
-fell = sample[sample['player_out'].notna()]
-print(fell[['over','ball','ball_no','player_out','wicket_kind','striker_out']])
+# print("--every wicket that feel in this innings--")
+# fell = sample[sample['player_out'].notna()]
+# print(fell[['over','ball','ball_no','player_out','wicket_kind','striker_out']])
+
+
+# import pandas as pd
+# df=pd.read_csv("win_probability_dataset.csv")
+# print(sorted(df['season'].unique()))
+
+import pandas as pd
+df=pd.read_csv("IPL.csv")
+
+for s in ["2007/08","2009/10","2020/21"]:
+    sample = df[df['season']==s][['season','date']].drop_duplicates()
+    print(s,'->actual dates')
+    print(sample.head(3))
+    print()
