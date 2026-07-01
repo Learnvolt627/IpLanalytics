@@ -31,15 +31,15 @@
 # print(fell[['over','ball','ball_no','player_out','wicket_kind','striker_out']])
 
 
-# import pandas as pd
-# df=pd.read_csv("win_probability_dataset.csv")
-# print(sorted(df['season'].unique()))
-
 import pandas as pd
-df=pd.read_csv("IPL.csv")
+df=pd.read_csv("win_probability_dataset.csv")
+print(sorted(df['season'].unique()))
 
-for s in ["2007/08","2009/10","2020/21"]:
-    sample = df[df['season']==s][['season','date']].drop_duplicates()
-    print(s,'->actual dates')
-    print(sample.head(3))
-    print()
+# import pandas as pd
+# df=pd.read_csv("IPL.csv")
+
+# for s in ["2007/08","2009/10","2020/21"]:
+#     sample = df[df['season']==s][['season','date']].drop_duplicates()
+#     print(s,'->actual dates')
+#     print(sample.head(3))
+#     print()

@@ -3,9 +3,8 @@ import pandas as pd
 
 df=pd.read_csv("IPL.csv")
 
-df['season']= df['season'].astype(str)
-df['season']= df['season'].str.extract(r'(\d{4})')
-df['season']=pd.to_numeric(df['season'], errors='coerce')
+df['date']=pd.to_datetime(df['date'])
+df['season']=df['date'].dt.year
 
 chase = df[df['innings']==2].copy()
 
