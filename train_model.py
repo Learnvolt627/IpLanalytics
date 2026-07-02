@@ -22,3 +22,20 @@ Y_test=test['label']
 
 print(X_train.shape)
 print(X_train.head(3))
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+
+
+pre = ColumnTransformer([
+    ('cat', OneHotEncoder(handle_unknown='ignore'), cat_features)
+], remainder='passthrough')
+
+model= Pipeline([
+    ('prep',pre),
+    ('clif', LogisticRegression(max_iter=1000))
+])
+
+print("Pipline built successfully")
