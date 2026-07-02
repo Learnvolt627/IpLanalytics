@@ -42,4 +42,17 @@ model= Pipeline([
 # print("Pipline built successfully")
 
 model.fit(X_train, Y_train)
-print("Model trained")
+# print("Model trained")
+
+from sklearn.metrics import accuracy_score , log_loss , roc_auc_score
+
+y_pred= model.predict(X_test)
+y_pred_proba = model.predict_proba(X_test)[:,1]
+
+# print(f"Accuracy: {accuracy_score(Y_test, y_pred):.3f}")
+# print(f"ROC-AUC: {roc_auc_score(Y_test, y_pred_proba):.3f}")
+# print(f"Log loss: {log_loss(Y_test, y_pred_proba):.3f}")
+
+import joblib
+joblib.dump(model, "win_prob_model.pkl")
+print("Model saved.")
